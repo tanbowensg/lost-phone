@@ -1,0 +1,131 @@
+$topbar-font-size: 12px;
+$time-font-size: 70px;
+
+@mixin svg() {
+  svg {
+    fill: currentColor;
+    height: 1em;
+    width: 1em;
+  }
+}
+
+body {
+  background: url(../../public/bg.jpg);
+  background-size: 320px 568px;
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0px;
+  color: white;
+  font-family:"Helvetica Neue";
+}
+
+#id {
+  background-color: red;
+}
+
+.topbar {
+  margin: 5px 0.5em;
+  font-size: $topbar-font-size;
+  color: white;
+  line-height: 1;
+  .topbar-left {
+    display: inline-block;
+  }
+  .topbar-right {
+    float: right;
+  }
+  .topbar-item {
+    display: inline-block;
+    vertical-align: middle;
+    &.signal {
+      height: $topbar-font-size;
+      .dot {
+        display: inline-block;
+        border: 0.5px solid white;
+        border-radius: 50%;
+        height: 5px;
+        width: 5px;
+        margin-right: 2px;
+        line-height: $topbar-font-size;
+        vertical-align: 1px;
+        &.full {
+          background-color: white
+        }
+      }
+    }
+    &.service-provider {
+    }
+    &.wifi {
+      svg {
+        fill: currentColor;
+        height: 1em;
+        width: 1em;
+      }
+    }
+    &.battery {
+      span {
+        vertical-align: middle;
+      }
+      .full {
+        $b-height:8px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 22px;
+        height: $b-height;
+        border-radius: 1px;
+        border: 0.5px solid white;
+        padding: 0.3px;
+        &:after {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 4px;
+          right: -2px;
+          top: ($b-height - 4px) / 2;
+          background-color: white;
+        }
+        .left-power {
+          height: calc(100% - 0.3 * 2px);
+          width: 64%;
+          margin: 0.3px;
+          background-color: orange;
+        }
+      }
+    }
+    &.bluetooth {
+      @include svg();
+    }
+  }
+}
+
+.time {
+  font-size: $time-font-size;
+  margin: 16px auto 0 auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+.date {
+  text-align: center;
+}
+
+.slide-unlock {
+  font-size: 22px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 60px;
+    background: radial-gradient(white,transparent);
+  background-color: rgba(0,0,0,0.4);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 4.5em 3em;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: slide 2s linear infinite;
+  @keyframes slide {
+    from {background-position-x: 0 }
+    to {background-position-x: 150% }
+  }
+}
