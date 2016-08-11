@@ -1,8 +1,8 @@
 $topbar-font-size: 12px;
 $time-font-size: 70px;
 
-@mixin svg() {
-  svg {
+@mixin img() {
+  img {
     fill: currentColor;
     height: 1em;
     width: 1em;
@@ -63,11 +63,7 @@ body {
     &.service-provider {
     }
     &.wifi {
-      svg {
-        fill: currentColor;
-        height: 1em;
-        width: 1em;
-      }
+      @include img();
     }
     &.battery {
       span {
@@ -101,7 +97,7 @@ body {
       }
     }
     &.bluetooth {
-      @include svg();
+      @include img();
     }
   }
 }

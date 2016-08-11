@@ -10,9 +10,9 @@
 import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
+import bluetoothSvg from './bluetooth.svg';
+
+console.log(bluetoothSvg)
 
 class App extends Component {
 
@@ -51,11 +51,16 @@ class App extends Component {
   }
 
   render() {
-    return !this.props.error ? (
+    return (
       <div className="lost-phone">
         <div className="topbar">
           <div className="topbar-left">
-            <div className="topbar-item signal"><div className="dot full"></div><div className="dot full"></div><div className="dot full"></div><div className="dot empty"></div><div className="dot empty"></div>
+            <div className="topbar-item signal">
+              <div className="dot full"></div>
+              <div className="dot full"></div>
+              <div className="dot full"></div>
+              <div className="dot empty"></div>
+              <div className="dot empty"></div>
             </div>
             <div className="topbar-item service-provider">中国联通</div>
             <div className="topbar-item wifi">
@@ -64,8 +69,7 @@ class App extends Component {
           </div>
           <div className="topbar-right">
             <div className="topbar-item bluetooth">
-
-              bluetooth
+              <img src="{bluetoothSvg}" alt="bluetooth" />
             </div>
             <div className="topbar-item battery">
               <span>64%</span>
@@ -85,7 +89,7 @@ class App extends Component {
           > 滑动来解锁
         </div>
       </div>
-    ) : this.props.children;
+    );
   }
 
 }
