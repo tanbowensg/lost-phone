@@ -1,0 +1,6 @@
+{
+  "name": "topbar",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./topbar.js"
+}

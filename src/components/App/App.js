@@ -3,9 +3,12 @@ import LockScreen from '../lockScreen';
 
 class App extends Component {
   render() {
-    return <LockScreen></LockScreen>
+    return (
+      <div className="lost-phone">
+        <LockScreen></LockScreen>
+      </div>
+    )
   }
-
 }
 
 export default App;

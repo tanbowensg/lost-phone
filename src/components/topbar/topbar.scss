@@ -1,0 +1,81 @@
+$topbar-font-size: 12px;
+
+@mixin svg() {
+  svg {
+    fill: currentColor;
+    height: 1em;
+    width: 1em;
+  }
+}
+
+.topbar {
+  padding: 5px 0.5em;
+  font-size: $topbar-font-size;
+  color: white;
+  line-height: 1;
+  .topbar-left {
+    display: inline-block;
+  }
+  .topbar-right {
+    float: right;
+  }
+  .topbar-item {
+    display: inline-block;
+    vertical-align: middle;
+    &.signal {
+      height: $topbar-font-size;
+      .dot {
+        display: inline-block;
+        border: 0.5px solid white;
+        border-radius: 50%;
+        height: 5px;
+        width: 5px;
+        margin-right: 2px;
+        line-height: $topbar-font-size;
+        vertical-align: 1px;
+        &.full {
+          background-color: white
+        }
+      }
+    }
+    &.service-provider {
+    }
+    &.wifi {
+      @include svg();
+    }
+    &.battery {
+      span {
+        vertical-align: middle;
+      }
+      .full {
+        $b-height:8px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 22px;
+        height: $b-height;
+        border-radius: 1px;
+        border: 0.5px solid white;
+        padding: 0.3px;
+        &:after {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 4px;
+          right: -2px;
+          top: ($b-height - 4px) / 2;
+          background-color: white;
+        }
+        .left-power {
+          height: calc(100% - 0.3 * 2px);
+          width: 64%;
+          margin: 0.3px;
+          background-color: orange;
+        }
+      }
+    }
+    &.bluetooth {
+      @include svg();
+    }
+  }
+}
