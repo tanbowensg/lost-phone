@@ -1,0 +1,17 @@
+$button-r: 70px;
+
+.dial-pad {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dial-button {
+  flex: 1 1 auto;
+  display: inline-block;
+  width: $button-r;
+  height: $button-r;
+  border-radius: 50%;
+  margin: 16px;
+  background: red;
+}

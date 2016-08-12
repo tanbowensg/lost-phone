@@ -4,10 +4,14 @@ import Topbar from '../topbar';
 
 class Dial extends Component {
   render() {
+    const list = [1,2,3,4,5,6,7,8,9,0];
+    const nums = list.map(v => {
+      return <div className="dial-button">{v}</div>
+    })
     return (
       <main>
-        <div>
-          拨号
+        <div className="dial-pad">
+          {nums}
         </div>
       </main>
     );
