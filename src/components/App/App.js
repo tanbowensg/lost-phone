@@ -12,8 +12,6 @@ import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
 import bluetoothSvg from './bluetooth.svg';
 
-console.log(bluetoothSvg)
-
 class App extends Component {
 
   static propTypes = {
@@ -69,7 +67,7 @@ class App extends Component {
           </div>
           <div className="topbar-right">
             <div className="topbar-item bluetooth">
-              <img src="{bluetoothSvg}" alt="bluetooth" />
+              <img src={bluetoothSvg} alt="bluetooth" />
             </div>
             <div className="topbar-item battery">
               <span>64%</span>
