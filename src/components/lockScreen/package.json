@@ -1,0 +1,6 @@
+{
+  "name": "lockScreen",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./lockScreen.js"
+}
