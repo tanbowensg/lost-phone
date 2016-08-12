@@ -5,8 +5,7 @@ import Topbar from '../topbar';
 class LockScreen extends Component {
   render() {
     return (
-      <div className="lost-phone">
-        <Topbar></Topbar>
+      <main>
         <div className="time">
           4:53
         </div>
@@ -16,7 +15,7 @@ class LockScreen extends Component {
         <div className="slide-unlock">
           > 滑动来解锁
         </div>
-      </div>
+      </main>
     );
   }
 }

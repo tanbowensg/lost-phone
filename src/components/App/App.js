@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import LockScreen from '../lockScreen';
+import Topbar from '../topbar';
+import Dial from '../dial';
 
 class App extends Component {
   render() {
     return (
       <div className="lost-phone">
-        <LockScreen></LockScreen>
+        <Topbar></Topbar>
+        <Dial></Dial>
       </div>
     )
   }
