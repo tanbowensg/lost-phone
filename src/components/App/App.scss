@@ -20,12 +20,22 @@ body {
   }
   main.content {
     flex: 1 0 auto;
-    display: flex;
-    overflow: scroll;
-    section.page {
+    // 屏幕高度减去topbar高度
+    height: calc(100% - 24px);
+    .page {
       width: 100%;
-      flex: 0 0 auto;
+      height: 100%;
       position: relative;
     }
+  }
+}
+
+.carousel {
+  height: 100%;
+  &> div {
+    height: 100%;
+  }
+  .slider {
+    height: 100%;
   }
 }

@@ -6,7 +6,6 @@ import WifiSvg from '../svg/wifi.js';
 
 class Topbar extends Component {
   render() {
-    console.log(s,s)
     return (
       <div className="topbar">
         <div className="topbar-left">

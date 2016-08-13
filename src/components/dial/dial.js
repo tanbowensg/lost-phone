@@ -10,7 +10,7 @@ class Dial extends Component {
       return <div className="dial-button">{v}</div>
     })
     return (
-      <section className="page">
+      <section className="page swiper-slide">
         <div className="dial-pad">
           {nums}
         </div>

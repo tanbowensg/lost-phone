@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactSwipe from 'react-swipe';
 import LockScreen from '../lockScreen';
 import s from './App.scss'
 import Topbar from '../topbar';
@@ -37,10 +38,17 @@ class App extends Component {
       <div className="lost-phone">
         <Topbar></Topbar>
         <main className="content">
-          <Dial></Dial>
-          <LockScreen></LockScreen>
+          <ReactSwipe className="carousel" swipeOptions={{continuous: false}}>
+            <div className="slider">
+              <Dial></Dial>
+            </div>
+            <div className="slider">
+              <LockScreen></LockScreen>
+            </div>
+          </ReactSwipe>
         </main>
       </div>
+
     )
   }
 }

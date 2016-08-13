@@ -6,7 +6,7 @@ import Topbar from '../topbar';
 class LockScreen extends Component {
   render() {
     return (
-      <section className="page">
+      <section className="page swiper-slide">
         <div className="time">
           4:53
         </div>

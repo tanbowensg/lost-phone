@@ -32,9 +32,11 @@
     "pretty-error": "2.0.0",
     "react": "15.1.0",
     "react-dom": "15.1.0",
+    "react-swipe": "^5.0.3",
     "sequelize": "3.23.3",
     "source-map-support": "0.4.0",
     "sqlite3": "3.1.4",
+    "swipe-js-iso": "^2.0.3",
     "swiper": "^3.3.1",
     "universal-router": "1.2.2",
     "whatwg-fetch": "1.0.0"
