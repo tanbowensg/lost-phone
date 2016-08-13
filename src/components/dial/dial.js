@@ -10,11 +10,11 @@ class Dial extends Component {
       return <div className="dial-button">{v}</div>
     })
     return (
-      <main>
+      <section className="page">
         <div className="dial-pad">
           {nums}
         </div>
-      </main>
+      </section>
     );
   }
 }

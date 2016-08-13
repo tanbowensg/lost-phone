@@ -36,7 +36,10 @@ class App extends Component {
     return (
       <div className="lost-phone">
         <Topbar></Topbar>
-        <Dial></Dial>
+        <main className="content">
+          <Dial></Dial>
+          <LockScreen></LockScreen>
+        </main>
       </div>
     )
   }
