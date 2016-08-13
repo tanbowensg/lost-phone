@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './lockScreen.scss';
 import Topbar from '../topbar';
 
@@ -20,4 +21,4 @@ class LockScreen extends Component {
   }
 }
 
-export default LockScreen;
+export default withStyles(s)(LockScreen);

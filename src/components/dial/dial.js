@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './dial.scss';
 import Topbar from '../topbar';
 
@@ -18,4 +19,4 @@ class Dial extends Component {
   }
 }
 
-export default Dial;
+export default withStyles(s)(Dial);

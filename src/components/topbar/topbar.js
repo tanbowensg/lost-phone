@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './topbar.scss';
 import BluetoothSvg from '../svg/bluetooth.js';
 import WifiSvg from '../svg/wifi.js';
 
 class Topbar extends Component {
   render() {
+    console.log(s,s)
     return (
       <div className="topbar">
         <div className="topbar-left">
@@ -36,4 +38,4 @@ class Topbar extends Component {
   }
 }
 
-export default Topbar;
+export default withStyles(s)(Topbar);
