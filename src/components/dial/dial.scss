@@ -1,17 +1,35 @@
-$button-r: 70px;
+$button-width: 71px;
+$button-border-width: 2px;
+$border-color: rgb(86, 80, 96);
+$buttom-margin: 9px;
+$num-size: 42px;
+$str-size: 9px;
 
 .dial-pad {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  width: 3*($button-width + ($button-border-width + $buttom-margin) * 2);
+  margin: auto;
 }
 
 .dial-button {
-  flex: 1 1 auto;
   display: inline-block;
-  width: $button-r;
-  height: $button-r;
+  width: $button-width;
+  height: $button-width;
+  text-align: center;
   border-radius: 50%;
-  margin: 16px;
-  background: red;
+  border: solid $button-border-width $border-color;
+  margin: $buttom-margin;
+  &:last-child {
+    margin: $buttom-margin auto;
+    display: block;
+  }
+  .num {
+    font-size: $num-size;
+    font-weight: lighter;
+    transform: translateY(5px);
+  }
+  .str {
+    font-size: $str-size;
+    transform: translateY(-2px);
+    font-weight: lighter;
+  }
 }

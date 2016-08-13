@@ -10,10 +10,11 @@ body {
   width: 100vw;
   margin: 0px;
   background: url(../../public/bg.jpg);
+  background-size: cover;
   background-size: 320px 568px;
   background-repeat: no-repeat;
   color: white;
-  font-family:"Helvetica Neue";
+  font-family: -apple-system, Helvetica, Arial, sans-serif;
   .topbar {
     flex: 0 0 auto;
   }
