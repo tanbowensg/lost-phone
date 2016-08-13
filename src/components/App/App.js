@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LockScreen from '../lockScreen';
+import s from './App.scss'
 import Topbar from '../topbar';
 import Dial from '../dial';
 
