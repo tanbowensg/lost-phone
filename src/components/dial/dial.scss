@@ -50,9 +50,14 @@ $psd-dial-margin: 30px;
     border-radius: 50%;
     border: solid $button-border-width $border-color;
     margin: $buttom-margin;
+    transition: 0.3s;
     &:last-child {
       margin: $buttom-margin auto;
       display: block;
+    }
+    &:active {
+      transition: none;
+      background-color: $border-color;
     }
     .num {
       font-size: $num-size;
