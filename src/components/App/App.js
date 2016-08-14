@@ -51,53 +51,51 @@ class App extends Component {
 
   // 改变背景的明度和模糊
   onSwiping(progress) {
-    if (this.state.shouldChangeBg) {
-      if ((this.state.swipeIndex === 0 && progress < 0) ||
-        this.state.swipeIndex === 1 && progress > 0) {
-        return false;
-      }
-      const percent = Math.abs(progress);
-      let blur = 0;
-      let bright = 0;
-      switch (this.state.swipeIndex) {
-        // 密码盘界面的滑动
-        case 0:
-          if (percent < SwipeCfg.BlurStart) {
-            blur = SwipeCfg.MaxBlur *
-              (1 - percent / SwipeCfg.BlurStart);
-          }
-          bright = SwipeCfg.MinBright + (1 - SwipeCfg.MinBright) * percent;
-          break;
-        // 锁屏界面的滑动
-        case 1:
-          if (percent > SwipeCfg.BlurStart) {
-            blur = SwipeCfg.MaxBlur *
-              (percent - SwipeCfg.BlurStart) / SwipeCfg.BlurStart;
-          }
-          bright = 1 - (1 - SwipeCfg.MinBright) * percent;
-          break;
-        default:
-      }
-
-      // 检查blur是否超出最大值
-      if (SwipeCfg.MaxBlur * percent > SwipeCfg.MaxBlur) {
-        blur = SwipeCfg.MaxBlur;
-      }
-
-      // 检查brightness是否超出最小值
-      if (bright > 1) {
-        bright = 1;
-      } else if (bright < SwipeCfg.MinBright) {
-        bright = SwipeCfg.MinBright;
-      }
-
-      this.setState({
-        bgStyle: {
-          '-webkit-filter': `blur(${blur}px) 
-            brightness(${bright})`,
-        },
-      });
+    if ((this.state.swipeIndex === 0 && progress < 0) ||
+      this.state.swipeIndex === 1 && progress > 0) {
+      return false;
     }
+    const percent = Math.abs(progress);
+    let blur = 0;
+    let bright = 0;
+    switch (this.state.swipeIndex) {
+      // 密码盘界面的滑动
+      case 0:
+        if (percent < SwipeCfg.BlurStart) {
+          blur = SwipeCfg.MaxBlur *
+            (1 - percent / SwipeCfg.BlurStart);
+        }
+        bright = SwipeCfg.MinBright + (1 - SwipeCfg.MinBright) * percent;
+        break;
+      // 锁屏界面的滑动
+      case 1:
+        if (percent > SwipeCfg.BlurStart) {
+          blur = SwipeCfg.MaxBlur *
+            (percent - SwipeCfg.BlurStart) / SwipeCfg.BlurStart;
+        }
+        bright = 1 - (1 - SwipeCfg.MinBright) * percent;
+        break;
+      default:
+    }
+
+    // 检查blur是否超出最大值
+    if (SwipeCfg.MaxBlur * percent > SwipeCfg.MaxBlur) {
+      blur = SwipeCfg.MaxBlur;
+    }
+
+    // 检查brightness是否超出最小值
+    if (bright > 1) {
+      bright = 1;
+    } else if (bright < SwipeCfg.MinBright) {
+      bright = SwipeCfg.MinBright;
+    }
+
+    this.setState({
+      bgStyle: {
+        '-webkit-filter': `blur(${blur}px) 
+          brightness(${bright})`,
+      },
+    });
     return false;
   }
 

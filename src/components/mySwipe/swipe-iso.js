@@ -247,7 +247,6 @@ import throttle from 'lodash/throttle';
     var events = {
 
       handleEvent: function(event) {
-        console.log(event.type)
         switch (event.type) {
           case 'touchstart': this.start(event); break;
           case 'touchend': offloadFn(this.end(event)); break;
