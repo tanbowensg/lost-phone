@@ -1,35 +1,69 @@
-$button-width: 71px;
+$button-width: 68px;
 $button-border-width: 2px;
 $border-color: rgb(86, 80, 96);
 $buttom-margin: 9px;
-$num-size: 42px;
+$num-size: 40px;
 $str-size: 9px;
+$psd-size: 20px;
+$psd-dot-width: 8px;
+$psd-margin-top: 25px;
+$psd-title-dot-margin: 15px;
+$psd-dial-margin: 30px;
 
-.dial-pad {
-  width: 3*($button-width + ($button-border-width + $buttom-margin) * 2);
-  margin: auto;
+.unlock-page {
+  .password {
+    .password-title {
+      font-size: $psd-size;
+      font-weight: normal;
+      text-align: center;
+      margin-top: $psd-margin-top;
+    }
+    .password-dot {
+      text-align: center;
+      margin-top: $psd-title-dot-margin;
+      .dot {
+        display: inline-block;
+        border: 1.5px solid $border-color;
+        border-radius: 50%;
+        height: $psd-dot-width;
+        width: $psd-dot-width;
+        margin: 0 13px;
+        vertical-align: 1px;
+        &.full {
+          background-color: white
+        }
+      }
+    }
+  }
+
+  .dial-pad {
+    width: 3*($button-width + ($button-border-width + $buttom-margin) * 2);
+    margin: auto;
+    margin-top: $psd-dial-margin;
+  }
+
+  .dial-button {
+    display: inline-block;
+    width: $button-width;
+    height: $button-width;
+    text-align: center;
+    border-radius: 50%;
+    border: solid $button-border-width $border-color;
+    margin: $buttom-margin;
+    &:last-child {
+      margin: $buttom-margin auto;
+      display: block;
+    }
+    .num {
+      font-size: $num-size;
+      font-weight: lighter;
+      transform: translateY(5px);
+    }
+    .str {
+      font-size: $str-size;
+      transform: translateY(-2px);
+      font-weight: lighter;
+    }
+  }
 }
 
-.dial-button {
-  display: inline-block;
-  width: $button-width;
-  height: $button-width;
-  text-align: center;
-  border-radius: 50%;
-  border: solid $button-border-width $border-color;
-  margin: $buttom-margin;
-  &:last-child {
-    margin: $buttom-margin auto;
-    display: block;
-  }
-  .num {
-    font-size: $num-size;
-    font-weight: lighter;
-    transform: translateY(5px);
-  }
-  .str {
-    font-size: $str-size;
-    transform: translateY(-2px);
-    font-weight: lighter;
-  }
-}

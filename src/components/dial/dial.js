@@ -49,9 +49,15 @@ class Dial extends Component {
     });
 
     return (
-      <section className="page">
+      <section className="page unlock-page">
         <div className="password">
-          <div>输入密码</div>
+          <div className="password-title">输入密码</div>
+          <div className="password-dot">
+            <div className="dot empty"></div>
+            <div className="dot empty"></div>
+            <div className="dot empty"></div>
+            <div className="dot empty"></div>
+          </div>
         </div>
         <div className="dial-pad">
           {nums}
