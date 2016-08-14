@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactSwipe from 'react-swipe';
 import LockScreen from '../lockScreen';
+import bg from '../../public/bg.jpg';
 import s from './App.scss'
 import Topbar from '../topbar';
 import Dial from '../dial';
@@ -36,9 +37,12 @@ class App extends Component {
   render() {
     return (
       <div className="lost-phone">
+        <img className="backgroud" src={bg}></img>
         <Topbar></Topbar>
         <main className="content">
-          <ReactSwipe className="carousel" swipeOptions={{continuous: false}}>
+          <ReactSwipe className="carousel"
+            swipeOptions={{continuous: false}}
+            startSlide={1}>
             <div className="slider">
               <Dial></Dial>
             </div>
