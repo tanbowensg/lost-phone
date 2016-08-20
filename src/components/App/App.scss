@@ -38,6 +38,7 @@ body {
     flex: 1 0 auto;
     // 屏幕高度减去topbar高度
     height: calc(100% - 24px);
+    // -webkit-backdrop-filter: blur(30px);
     .page {
       width: 100%;
       height: 100%;

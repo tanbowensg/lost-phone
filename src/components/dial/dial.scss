@@ -30,7 +30,7 @@ $psd-dial-margin: 30px;
         margin: 0 13px;
         vertical-align: 1px;
         &.full {
-          background-color: white
+          background-color: $border-color;
         }
       }
     }
@@ -70,5 +70,27 @@ $psd-dial-margin: 30px;
       font-weight: lighter;
     }
   }
-}
 
+  &.wrong {
+    animation-duration: 400ms;
+    animation-timing-function: ease-in-out;
+    animation-name: panelShakeAnimation;
+    @keyframes panelShakeAnimation {
+      12.5% {
+          transform: translateX(-6px) rotateY(-5deg);
+      }
+      37.5% {
+          transform: translateX(5px) rotateY(4deg);
+      }
+      62.5% {
+          transform: translateX(-3px) rotateY(-2deg);
+      }
+      87.5% {
+          transform: translateX(2px) rotateY(1deg);
+      }
+      100% {
+          transform: translateX(0);
+      }
+    }
+  }
+}

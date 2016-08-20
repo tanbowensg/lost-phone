@@ -4,6 +4,37 @@ import s from './dial.scss';
 import Topbar from '../topbar';
 
 class Dial extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      psw: [],
+      wrongPsw: false,
+    };
+    console.log(this.state)
+  }
+
+  onNumberClick(num) {
+    const newPsw = this.state.psw;
+    newPsw.push(num);
+    if (newPsw.length === 4 && newPsw.join() !== '0913') {
+      this.setState({
+        psw: newPsw,
+        wrongPsw: true,
+      })
+      setTimeout(() => {
+        this.setState({
+          psw: [],
+          wrongPsw: false,
+        })
+      }, 400)
+    } else {
+      this.setState({
+        psw: newPsw,
+      })
+    }
+    console.log(newPsw)
+  }
+
   render() {
     const list = [
       {
@@ -41,7 +72,9 @@ class Dial extends Component {
 
     const nums = list.map(v => {
       return (
-        <div className="dial-button">
+        <div className="dial-button"
+          key={v.num}
+          onClick={this.onNumberClick.bind(this, v.num)}>
           <div className="num">{v.num}</div>
           <div className="str">{v.str}</div>
         </div>
@@ -49,14 +82,14 @@ class Dial extends Component {
     });
 
     return (
-      <section className="page unlock-page">
+      <section className={this.state.wrongPsw ? 'page unlock-page wrong' : 'page unlock-page'}>
         <div className="password">
           <div className="password-title">输入密码</div>
           <div className="password-dot">
-            <div className="dot empty"></div>
-            <div className="dot empty"></div>
-            <div className="dot empty"></div>
-            <div className="dot empty"></div>
+            <div className={!isNaN(this.state.psw[0]) ? 'dot full' : 'dot'}></div>
+            <div className={!isNaN(this.state.psw[1]) ? 'dot full' : 'dot'}></div>
+            <div className={!isNaN(this.state.psw[2]) ? 'dot full' : 'dot'}></div>
+            <div className={!isNaN(this.state.psw[3]) ? 'dot full' : 'dot'}></div>
           </div>
         </div>
         <div className="dial-pad">
