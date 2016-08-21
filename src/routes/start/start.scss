@@ -9,6 +9,20 @@ $app-border-radius: 12px;
 $app-name-font-size: 12px;
 
 .start-page {
+  transform: scale(5);
+  animation: init 0.5s;
+  transform-origin: 50vh 50vw;
+  @keyframes init {
+    0% {
+      transform: scale(5);
+      // transform: scaleY(5);
+    }
+    to {
+      // transform: scaleX(1);
+      transform: scale(1);
+    }
+  }
+
   main.content {
     display: flex;
     flex-direction: column;
@@ -44,6 +58,7 @@ $app-name-font-size: 12px;
   .app-list {
     padding: 0;
     margin: 0;
+    width: 100vw;
     list-style: none;
   }
 
