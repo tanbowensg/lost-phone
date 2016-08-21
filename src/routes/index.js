@@ -11,12 +11,10 @@ import React from 'react';
 import App from '../components/App';
 
 // Child routes
-import home from './home';
-import contact from './contact';
-import login from './login';
-import register from './register';
 import content from './content';
 import error from './error';
+// lockpage作为文件夹名字一定不能小写
+import lock from './lock';
 
 export default {
 
@@ -24,10 +22,7 @@ export default {
 
   // keep in mind, routes are evaluated in order
   children: [
-    home,
-    contact,
-    login,
-    register,
+    lock,
 
     // place new routes before...
     content,

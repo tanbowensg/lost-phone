@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Swipe from '../mySwipe';
-import LockScreen from '../lockScreen';
-import bg from '../../public/bg.jpg';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './lockPage.scss';
-import Topbar from '../topbar';
-import Dial from '../dial';
+import bg from '../../public/bg.jpg';
+import Swipe from '../../components/mySwipe';
+import LockScreen from '../../components/lockScreen';
+import s from './lock.scss';
+import Topbar from '../../components/topbar';
+import Dial from '../../components/dial';
 
 const SwipeCfg = {
   MinBright: 0.5,
@@ -13,7 +13,7 @@ const SwipeCfg = {
   BlurStart: 0.5,
 };
 
-class LockPage extends Component {
+class Lock extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -125,4 +125,4 @@ class LockPage extends Component {
   }
 }
 
-export default withStyles(s)(LockPage);
+export default withStyles(s)(Lock);

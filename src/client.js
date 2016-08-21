@@ -105,7 +105,6 @@ function run() {
       });
     }
     currentLocation = location;
-
     UniversalRouter.resolve(routes, {
       path: location.pathname,
       query: location.query,
