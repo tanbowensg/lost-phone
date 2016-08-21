@@ -17,8 +17,7 @@ export default {
   async action() {
     return (
       <div>
-        this is start index.
-	    <Start />
+        <Start />
       </div>
     );
   },

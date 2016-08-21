@@ -1,54 +1,88 @@
-$bg-blur-r: 40px;
+$dot-size: 8px;
+$dot-margin: 5px;
+$dot-color: rgb(86, 80, 96);
+$bottom-bar-height: 96px;
+$app-size: 60px;
+$app-margin-horizontal: calc((100vw - 4 * #{$app-size}) / 5);
+$app-margin-vertical: 10px;
+$app-border-radius: 12px;
+$app-name-font-size: 12px;
 
-.lock-page {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  overflow: hidden;
-  // TODO：这里可能要斟酌一下到底用100vh还是100%。因为浏览器的边栏是不算在vh里的。
-  height: calc(100vh + 2px);
-  width: 100vw;
-  margin: 0px;
-  color: white;
-  font-family: -apple-system, Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  .backgroud {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    height: calc(100% + #{$bg-blur-r * 1.5} * 2);
-    width: calc(100% + #{$bg-blur-r * 1.5} * 2);
-    margin: -$bg-blur-r * 1.5;
-    background: url(../../public/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -1;
-    -webkit-transform: translateZ(0);
-    -webkit-perspective: 0;
-    -webkit-backface-visibility: hidden;
-  }
-  .topbar {
-    flex: 0 0 auto;
-  }
+.start-page {
   main.content {
-    flex: 1 0 auto;
-    // 屏幕高度减去topbar高度
-    height: calc(100% - 24px);
-    // -webkit-backdrop-filter: blur(30px);
-    .page {
-      width: 100%;
-      height: 100%;
-      position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-wrap {
+    overflow: hidden;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .carousel {
+      flex: 1;
+    }
+    .app-pagination {
+      text-align: center;
+      .dot {
+        display: inline-block;
+        border-radius: 50%;
+        height: $dot-size;
+        width: $dot-size;
+        margin: 0 $dot-margin;
+        vertical-align: 1px;
+        background-color: white;
+        opacity: 0.5;
+        &.full {
+          background-color: white;
+          opacity: 1;
+        }
+      }
     }
   }
-}
 
-.carousel {
-  height: 100%;
-  &> div {
-    height: 100%;
+  .app-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
-  .slider {
-    height: 100%;
+
+  .app {
+    display: inline-block;
+    text-align: center;
+    width: $app-size;
+    margin-right: $app-margin-horizontal;
+    margin-bottom: $app-margin-vertical;
+    &:nth-child(4n-3) {
+      margin-left: $app-margin-horizontal;
+    }
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    .app-icon {
+      display: inline-block;
+      width: $app-size;
+      height: $app-size;
+      border-radius: $app-border-radius;
+    }
+    .app-name {
+      display: block;
+      font-size: $app-name-font-size;
+      font-weight: lighter;
+    }
   }
+  
+  .bottom-bar {
+    flex: 0 0 auto;
+    position: relative;
+    height: $bottom-bar-height;
+    -webkit-backdrop-filter: blur(25px);
+    // -webkit-filter: blur(30px);
+    .app {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
 }

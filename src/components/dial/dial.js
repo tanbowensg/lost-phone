@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import History from '../../core/history';
 import s from './dial.scss';
-import Topbar from '../topbar';
 
 class Dial extends Component {
   constructor(props) {
@@ -10,62 +10,62 @@ class Dial extends Component {
       psw: [],
       wrongPsw: false,
     };
-    console.log(this.state)
   }
 
   onNumberClick(num) {
     const newPsw = this.state.psw;
     newPsw.push(num);
-    if (newPsw.length === 4 && newPsw.join() !== '0913') {
+    if (newPsw.length === 4 && newPsw.join('') !== '0913') {
       this.setState({
         psw: newPsw,
         wrongPsw: true,
-      })
+      });
       setTimeout(() => {
         this.setState({
           psw: [],
           wrongPsw: false,
-        })
-      }, 400)
+        });
+      }, 400);
+    } else if (newPsw.join('') === '0913') {
+      History.push('/start');
     } else {
       this.setState({
         psw: newPsw,
-      })
+      });
     }
-    console.log(newPsw)
   }
 
   render() {
     const list = [
       {
-        num:1,
+        num: 1,
         str: '　',
       }, {
-        num:2,
+        num: 2,
         str: 'A B C',
       }, {
-        num:3,
+        num: 3,
         str: 'D E F',
       }, {
-        num:4,
+        num: 4,
         str: 'G H I',
       }, {
-        num:5,
+        num: 5,
         str: 'J K L',
       }, {
-        num:6,
+        num: 6,
         str: 'M N O',
       }, {
-        num:7,
+        num: 7,
         str: 'P Q R S',
       }, {
-        num:8,
+        num: 8,
         str: 'T U V',
       }, {
-        num:9,
+        num: 9,
         str: 'W X Y Z',
       }, {
-        num:0,
+        num: 0,
         str: '   ',
       }
     ];

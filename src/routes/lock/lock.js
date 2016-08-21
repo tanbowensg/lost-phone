@@ -6,6 +6,7 @@ import LockScreen from '../../components/lockScreen';
 import s from './lock.scss';
 import Topbar from '../../components/topbar';
 import Dial from '../../components/dial';
+import throttle from 'lodash/throttle';
 
 const SwipeCfg = {
   MinBright: 0.5,
@@ -26,6 +27,7 @@ class Lock extends Component {
 
   // 改变背景的明度和模糊
   onSwiping(progress) {
+    console.log('gaile')
     if ((this.state.swipeIndex === 0 && progress < 0) ||
       this.state.swipeIndex === 1 && progress > 0) {
       return false;
@@ -67,8 +69,9 @@ class Lock extends Component {
 
     this.setState({
       bgStyle: {
-        '-webkit-filter': `blur(${blur}px) 
+        '-webkit-filter': `blur(${blur}px)
           brightness(${bright})`,
+        // opacity: progress,
       },
     });
     return false;
@@ -100,12 +103,12 @@ class Lock extends Component {
       startSlide: 1,
       shortSwipes: false,
       continuous: false,
-      swiping: that.onSwiping.bind(that),
+      swiping: throttle(that.onSwiping.bind(that), 30),
       // callback: that.swipeCallback.bind(that),
       transitionEnd: that.swipeCallback.bind(that),
     };
     return (
-      <div className="lock-page">
+      <div className="lock-page page">
         <img className="backgroud" src={bg} style={this.state.bgStyle}></img>
         <Topbar></Topbar>
         <main className="content">
