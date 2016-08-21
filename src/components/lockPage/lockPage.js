@@ -1,6 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import s from './App.scss';
-import LockPage from '../lockPage';
+import React, { Component } from 'react';
+import Swipe from '../mySwipe';
+import LockScreen from '../lockScreen';
+import bg from '../../public/bg.jpg';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './lockPage.scss';
+import Topbar from '../topbar';
+import Dial from '../dial';
 
 const SwipeCfg = {
   MinBright: 0.5,
@@ -8,17 +13,7 @@ const SwipeCfg = {
   BlurStart: 0.5,
 };
 
-class App extends Component {
-  static propTypes = {
-    context: PropTypes.shape({
-      insertCss: PropTypes.func,
-    }),
-  };
-
-  static childContextTypes = {
-    insertCss: PropTypes.func.isRequired,
-  };
-
+class LockPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,22 +22,6 @@ class App extends Component {
       },
       swipeIndex: 1,
     };
-  }
-
-  getChildContext() {
-    const context = this.props.context;
-    return {
-      insertCss: context.insertCss,
-    };
-  }
-
-  componentWillMount() {
-    const { insertCss } = this.props.context;
-    this.removeCss = insertCss(s);
-  }
-
-  componentWillUnmount() {
-    this.removeCss();
   }
 
   // 改变背景的明度和模糊
@@ -116,12 +95,34 @@ class App extends Component {
   }
 
   render() {
+    const that = this;
+    const swipeOptions = {
+      startSlide: 1,
+      shortSwipes: false,
+      continuous: false,
+      swiping: that.onSwiping.bind(that),
+      // callback: that.swipeCallback.bind(that),
+      transitionEnd: that.swipeCallback.bind(that),
+    };
     return (
-      <div className="lost-phone">
-        <LockPage></LockPage>
+      <div className="lock-page">
+        <img className="backgroud" src={bg} style={this.state.bgStyle}></img>
+        <Topbar></Topbar>
+        <main className="content">
+          <Swipe className="carousel"
+            swipeOptions={swipeOptions}>
+            <div className="slider">
+              <Dial></Dial>
+            </div>
+            <div className="slider">
+              <LockScreen></LockScreen>
+            </div>
+          </Swipe>
+        </main>
       </div>
+
     )
   }
 }
 
-export default App;
+export default withStyles(s)(LockPage);
