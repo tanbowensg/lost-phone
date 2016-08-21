@@ -13,8 +13,9 @@ import App from '../components/App';
 // Child routes
 import content from './content';
 import error from './error';
-// lockpage作为文件夹名字一定不能小写
+// lock作为文件夹名字一定不能驼峰命名，不然会导致不明的bug
 import lock from './lock';
+import start from './start';
 
 export default {
 
@@ -23,6 +24,7 @@ export default {
   // keep in mind, routes are evaluated in order
   children: [
     lock,
+    start,
 
     // place new routes before...
     content,

@@ -8,15 +8,18 @@
  */
 
 import React from 'react';
-import Lock from './lock.js';
+import Start from './start.js';
 
 export default {
 
-  path: '/',
+  path: '/start',
 
   async action() {
     return (
-      <Lock />
+      <div>
+        this is start index.
+	    <Start />
+      </div>
     );
   },
 
