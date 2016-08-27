@@ -9,9 +9,9 @@ $app-border-radius: 12px;
 $app-name-font-size: 12px;
 
 .start-page {
-  transform: scale(5);
+  transform: scale(1);
   animation: init 0.5s;
-  transform-origin: 50vh 50vw;
+  transform-origin: center;
   @keyframes init {
     0% {
       transform: scale(5);
