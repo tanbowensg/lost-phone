@@ -11,7 +11,6 @@ import React from 'react';
 import App from '../components/App';
 
 // Child routes
-import content from './content';
 import error from './error';
 // lock作为文件夹名字一定不能驼峰命名，不然会导致不明的bug
 import lock from './lock';
@@ -27,7 +26,6 @@ export default {
     start,
 
     // place new routes before...
-    content,
     error,
   ],
 
