@@ -41,14 +41,19 @@ class App extends Component {
   componentWillMount() {
     // TODO：暂时把显示noty的逻辑放在这里
     setTimeout(() => {
-      const noty = TEXT.noty.FIRST_NOTY;
-      noty.show = true;
       this.setState({
-        notyData: noty,
+        notyShow: true,
+        notyData: TEXT.noty.FIRST_NOTY,
       });
     }, 3000);
     const { insertCss } = this.props.context;
     this.removeCss = insertCss(s);
+  }
+
+  closeNoty() {
+    this.setState({
+      notyShow: false,
+    });
   }
 
   componentWillUnmount() {
@@ -57,8 +62,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="lost-phone">
-        <Noty show={this.state.notyData.show} notyData={this.state.notyData}/>
+      <div className="lost-phone" key="213">
+        <Noty show={this.state.notyShow}
+          closeNoty={this.closeNoty.bind(this)}
+          notyData={this.state.notyData}/>
         {this.props.children}
       </div>
     );

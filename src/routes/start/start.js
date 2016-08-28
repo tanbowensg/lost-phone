@@ -12,7 +12,6 @@ class Start extends Component {
   }
 
   render() {
-    const that = this;
     const swipeOptions = {
       startSlide: 0,
       shortSwipes: false,

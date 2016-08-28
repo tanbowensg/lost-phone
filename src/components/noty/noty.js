@@ -5,28 +5,21 @@ import s from './noty.scss';
 class Dial extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      show: this.props.notyData.show,
-    };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.notyData.show) {
-      this.setState({
-        show: true,
-      });
+    if (nextProps.show) {
       // 5秒后自动消失
       setTimeout(() => {
-        this.setState({
-          show: false,
-        });
+        this.props.closeNoty();
       }, 5000);
     }
   }
 
   render() {
     return (
-      <div className={this.state.show ? 'noty show' : 'noty'}>
+      <div className={this.props.show ? 'noty show' : 'noty'}
+        onClick={this.props.closeNoty}>
         <img src={this.props.notyData.icon} alt="233" className="noty-icon"/>
         <div className='noty-main'>
           <span className='noty-name'>{this.props.notyData.name}</span>
