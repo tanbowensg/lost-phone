@@ -15,7 +15,7 @@ class Dial extends Component {
   onNumberClick(num) {
     const newPsw = this.state.psw;
     newPsw.push(num);
-    if (newPsw.length === 4 && newPsw.join('') !== '0913') {
+    if (newPsw.length === 4 && newPsw.join('') !== '0807') {
       this.setState({
         psw: newPsw,
         wrongPsw: true,
@@ -26,7 +26,7 @@ class Dial extends Component {
           wrongPsw: false,
         });
       }, 400);
-    } else if (newPsw.join('') === '0913') {
+    } else if (newPsw.join('') === '0807') {
       History.push('/start');
     } else {
       this.setState({

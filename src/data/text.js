@@ -6,7 +6,7 @@ const TEXT = {
       icon: Images.wechat,
       name: '微信',
       time: '现在',
-      content: '女朋友: 今天是我的生日，你晚上还回不回来了？',
+      content: '老婆: 今天是我的生日，你晚上还回不回来了？',
     },
   },
   apps: [
