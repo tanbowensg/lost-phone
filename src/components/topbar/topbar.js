@@ -26,7 +26,6 @@ class Topbar extends Component {
             <BluetoothSvg></BluetoothSvg>
           </div>
           <div className="topbar-item battery">
-            <span>64%</span>
             <div className="full">
               <div className="left-power"></div>
             </div>

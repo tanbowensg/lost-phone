@@ -19,7 +19,6 @@ class Start extends Component {
     this.setState({
       index: index,
     });
-    console.log(index)
   }
 
   render() {
@@ -65,6 +64,8 @@ class Start extends Component {
       );
     });
 
+    dots.push(<div className={this.state.index === 3 ? 'dot full' : 'dot'} />);
+
     return (
       <div className="start-page page">
         <img className="backgroud" src={bg}></img>
@@ -74,6 +75,10 @@ class Start extends Component {
             <Swipe className="carousel"
               swipeOptions={swipeOptions}>
               {mainApps}
+              <div className="slider">
+                <p style={{padding:'30px'}}>DEMO 版游戏就到此结束了。这个游戏未来会成为一个带有解密元素的电子小说，敬请期待。</p>
+                <p style={{padding:'30px'}}>另外，这个游戏灵感来自于 Replica，第一个谜题也是借鉴了 Replica。</p>
+              </div>
             </Swipe>
             <div className="app-pagination">
               {dots}

@@ -46,7 +46,7 @@ class App extends Component {
         notyShow: true,
         notyData: TEXT.noty.FIRST_NOTY,
       });
-    }, 3000);
+    }, 20000);
     const { insertCss } = this.props.context;
     this.removeCss = insertCss(s);
   }

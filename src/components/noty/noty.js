@@ -10,9 +10,9 @@ class Dial extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.show) {
       // 5秒后自动消失
-      setTimeout(() => {
-        this.props.closeNoty();
-      }, 5000);
+      // setTimeout(() => {
+      //   this.props.closeNoty();
+      // }, 5000);
     }
   }
 
