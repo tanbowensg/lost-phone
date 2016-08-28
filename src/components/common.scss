@@ -1,4 +1,18 @@
+// 变量们
+// noty的变量
+$noty-height: 69px;
+
+// 颜色
+$pink-grey: rgb(148, 118, 128);
+$grey: rgb(77, 79, 84);
+
 $bg-blur-r: 40px;
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 
 .page {
   display: flex;

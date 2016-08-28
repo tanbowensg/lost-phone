@@ -1,0 +1,6 @@
+{
+  "name": "gm",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./gm.js"
+}

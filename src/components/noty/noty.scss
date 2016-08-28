@@ -1,0 +1,71 @@
+@import '../../components/common.scss';
+
+$noty-padding-v: 7.5px;
+$noty-padding-h: 15px;
+$noty-icon-size: 20px;
+$noty-icon-main-margin: 11px;
+$noty-name-time-margin: 10px;
+$noty-font-size: 13px;
+$noty-time-font-size: 11px;
+
+$drag-bar-width: 32px;
+$drag-bar-height: 5px;
+$drag-bar-bottom: 4px;
+
+.noty {
+  display: flex;
+  position: fixed;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(25px) brightness(0.4);
+  color:white;
+  font-size: $noty-font-size;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  width: calc(100vw - 2 * $noty-padding-h);
+  padding: 0;
+  transition: 0.1s linear height;
+  height: 0;
+  transform-origin: top;
+  &.show {
+    height: $noty-height;
+    padding: $noty-padding-v $noty-padding-h;
+  }
+}
+
+.noty-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  margin-right: $noty-icon-main-margin;
+  height: 20px;
+  width: 20px;
+  border: none;
+}
+
+.noty-main {
+  display: inline-block;
+  flex: 0 1 auto;
+}
+
+.noty-name {
+  margin-right: $noty-name-time-margin;
+  font-weight: 600;
+}
+
+.noty-time {
+  font-size: $noty-time-font-size;
+  color: white;
+  opacity: 0.5;
+}
+
+.drag-bar {
+  position: absolute;
+  width: $drag-bar-width;
+  height: $drag-bar-height;
+  bottom: $drag-bar-bottom;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: $drag-bar-height / 2;
+  background-color: white;
+  opacity: 0.2;
+}
