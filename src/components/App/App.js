@@ -40,15 +40,18 @@ class App extends Component {
   }
 
   componentWillMount() {
+    const { insertCss } = this.props.context;
+    this.removeCss = insertCss(s);
+  }
+
+  componentDidMount() {
     // TODO：暂时把显示noty的逻辑放在这里
     setTimeout(() => {
       this.setState({
         notyShow: true,
         notyData: TEXT.noty.FIRST_NOTY,
       });
-    }, 20000);
-    const { insertCss } = this.props.context;
-    this.removeCss = insertCss(s);
+    }, 5000);
   }
 
   closeNoty() {
