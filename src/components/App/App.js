@@ -5,6 +5,7 @@ import GM from '../gm';
 import TEXT from '../../data/text';
 import Noty from '../noty';
 import s from './App.scss';
+import Images from '../../components/images';
 
 class App extends Component {
   constructor(props) {

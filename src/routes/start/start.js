@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import bg from '../../public/bg2.png';
-import facebook from '../../public/appicons/facebook.png';
+import Images from '../../components/images';
 import Swipe from '../../components/mySwipe';
 import s from './start.scss';
 import Topbar from '../../components/topbar';
+import TEXT from '../../data/text';
 
 class Start extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      index: 0,
+    };
+  }
+
+  swipeCallback(index) {
+    this.setState({
+      index: index,
+    });
+    console.log(index)
   }
 
   render() {
@@ -16,7 +27,44 @@ class Start extends Component {
       startSlide: 0,
       shortSwipes: false,
       continuous: false,
+      callback: this.swipeCallback.bind(this),
     };
+
+    const mainApps = TEXT.apps.map((list, index) => {
+      const apps = list.map((app, index2) => {
+        return (
+          <li className="app" key={index2}>
+            <img src={app.icon}
+              alt="{app.name}"
+              className="app-icon"/>
+            <span className="app-name">{app.name}</span>
+          </li>
+        );
+      })
+      return (
+        <div className="slider" key={index}>
+          {apps}
+        </div>
+      );
+    });
+
+    const bottomApps = TEXT.appsBottom.map((app, index) => {
+      return (
+        <li className="app" key={index}>
+          <img src={app.icon} alt={app.name} className="app-icon"/>
+          <span className="app-name">{app.name}</span>
+        </li>
+      )
+    });
+
+    const dots = TEXT.apps.map((list, index) => {
+      return (
+        <div className={this.state.index === index ? 'dot full' : 'dot'}
+          key={index}>
+        </div>
+      );
+    });
+
     return (
       <div className="start-page page">
         <img className="backgroud" src={bg}></img>
@@ -25,90 +73,14 @@ class Start extends Component {
           <div className="app-wrap">
             <Swipe className="carousel"
               swipeOptions={swipeOptions}>
-              <div className="slider">
-                <ul className="app-list">
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                  <li className="app">
-                    <img src={facebook} alt="" className="app-icon"/>
-                    <span className="app-name">facebook</span>
-                  </li>
-                </ul>
-              </div>
+              {mainApps}
             </Swipe>
             <div className="app-pagination">
-              <div className="dot full"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
+              {dots}
             </div>
           </div>
           <div className="bottom-bar">
-            <li className="app">
-              <img src={facebook} alt="" className="app-icon"/>
-              <span className="app-name">facebook</span>
-            </li>
-            <li className="app">
-              <img src={facebook} alt="" className="app-icon"/>
-              <span className="app-name">facebook</span>
-            </li>
-            <li className="app">
-              <img src={facebook} alt="" className="app-icon"/>
-              <span className="app-name">facebook</span>
-            </li>
-            <li className="app">
-              <img src={facebook} alt="" className="app-icon"/>
-              <span className="app-name">facebook</span>
-            </li>
+            {bottomApps}
           </div>
         </main>
       </div>

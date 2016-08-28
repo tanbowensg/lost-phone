@@ -4,6 +4,7 @@ $noty-padding-v: 7.5px;
 $noty-padding-h: 15px;
 $noty-icon-size: 20px;
 $noty-icon-main-margin: 11px;
+$noty-icon-border-radius: 4px;
 $noty-name-time-margin: 10px;
 $noty-font-size: 13px;
 $noty-time-font-size: 11px;
@@ -39,7 +40,7 @@ $drag-bar-bottom: 4px;
   margin-right: $noty-icon-main-margin;
   height: 20px;
   width: 20px;
-  border: none;
+  border-radius: $noty-icon-border-radius;
 }
 
 .noty-main {

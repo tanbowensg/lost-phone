@@ -27,7 +27,6 @@ class Lock extends Component {
 
   // 改变背景的明度和模糊
   onSwiping(progress) {
-    console.log('gaile')
     if ((this.state.swipeIndex === 0 && progress < 0) ||
       this.state.swipeIndex === 1 && progress > 0) {
       return false;
