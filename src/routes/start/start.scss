@@ -12,26 +12,15 @@ $app-name-font-size: 12px;
 
 .start-page {
   // 用transform的动画在safari上会有奇怪的表现
-  transform: scale(1);
-  animation: init 0.5s;
-  transform-origin: center;
-  @keyframes init {
-    from {
-      transform: scale(5);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
+  // transform: scale(1);
   // animation: init 0.5s;
+  // transform-origin: center;
   // @keyframes init {
-  //   0% {
-  //     height: 5680px;
-  //     width: 3200px;
+  //   from {
+  //     transform: scale(5);
   //   }
   //   to {
-  //     height: 100vh;
-  //     width: 100vw;
+  //     transform: scale(1);
   //   }
   // }
 
