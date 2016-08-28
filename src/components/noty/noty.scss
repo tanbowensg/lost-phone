@@ -17,7 +17,7 @@ $drag-bar-bottom: 4px;
   display: flex;
   position: fixed;
   overflow: hidden;
-  -webkit-backdrop-filter: blur(25px) brightness(0.4);
+  -webkit-backdrop-filter: blur(25px) brightness(0.8);
   color:white;
   font-size: $noty-font-size;
   z-index: 100;

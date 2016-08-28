@@ -51,7 +51,7 @@ class App extends Component {
         notyShow: true,
         notyData: TEXT.noty.FIRST_NOTY,
       });
-    }, 5000);
+    }, 15000);
   }
 
   closeNoty() {

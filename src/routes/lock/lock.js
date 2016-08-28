@@ -19,7 +19,7 @@ class Lock extends Component {
     super(props);
     this.state = {
       bgStyle: {
-        filter: 'blur(0px) brightness(1)',
+        WebkitFilter: 'blur(0px) brightness(1)',
       },
       swipeIndex: 1,
     };
@@ -68,7 +68,7 @@ class Lock extends Component {
 
     this.setState({
       bgStyle: {
-        '-webkit-filter': `blur(${blur}px)
+        'WebkitFilter': `blur(${blur}px)
           brightness(${bright})`,
         // opacity: progress,
       },
@@ -80,7 +80,7 @@ class Lock extends Component {
     if (index === 0) {
       this.setState({
         bgStyle: {
-          '-webkit-filter': `blur(${SwipeCfg.MaxBlur}) 
+          'WebkitFilter': `blur(${SwipeCfg.MaxBlur}) 
             brightness(${SwipeCfg.MinBright})`,
         },
         swipeIndex: index,
@@ -88,7 +88,7 @@ class Lock extends Component {
     } else if (index === 1) {
       this.setState({
         bgStyle: {
-          '-webkit-filter': `blur(0) 
+          'WebkitFilter': `blur(0) 
             brightness(1)`,
         },
         swipeIndex: index,
@@ -102,7 +102,7 @@ class Lock extends Component {
       startSlide: 1,
       shortSwipes: false,
       continuous: false,
-      swiping: throttle(that.onSwiping.bind(that), 30),
+      swiping: that.onSwiping.bind(that),
       // callback: that.swipeCallback.bind(that),
       transitionEnd: that.swipeCallback.bind(that),
     };
