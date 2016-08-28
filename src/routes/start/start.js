@@ -64,7 +64,7 @@ class Start extends Component {
       );
     });
 
-    dots.push(<div className={this.state.index === 3 ? 'dot full' : 'dot'} />);
+    dots.push(<div key='3' className={this.state.index === 3 ? 'dot full' : 'dot'} />);
 
     return (
       <div className="start-page page">
