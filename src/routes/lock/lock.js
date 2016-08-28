@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import bg from '../../public/bg.jpg';
+import bg2 from '../../public/bg2.png';
 import Swipe from '../../components/mySwipe';
 import LockScreen from '../../components/lockScreen';
 import s from './lock.scss';
@@ -121,8 +122,8 @@ class Lock extends Component {
             </div>
           </Swipe>
         </main>
+        <img className="pre-load" src={bg2} alt=""/>
       </div>
-
     )
   }
 }
